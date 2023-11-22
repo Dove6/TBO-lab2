@@ -1,4 +1,5 @@
 from project import db, app
+from random import randint
 
 
 # Customer model
@@ -22,7 +23,7 @@ class Customer(db.Model):
         print("Getting: " + str(self),flush=True)
 
     def __repr__(self):
-        return f"Customer(ID: {self.id}, Name: {self.name}, City: {self.city}, Age: {self.age}, Pesel: {self.pesel}, Street: {self.street}, AppNo: {self.appNo})"
+        return f"Customer(ID: {self.id}, Name: {self.name}, City: {self.city}, Age: {self.age}, Pesel: {'*' * 11}, Street: {'*' * randint(4, 20)}, AppNo: {'*' * randint(1, 5)})"
 
 
 with app.app_context():
